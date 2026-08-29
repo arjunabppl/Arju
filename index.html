@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> Arj Papers lvt ltd</title>
+<title>Arju Papers Pvt Ltd</title>
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -101,13 +103,30 @@ th {
     background: #1f2937;
     color: white;
 }
+
+input,
+select,
+textarea {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.main button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="header">
-    <h1>Arju Paper Pvt ltd </h1>
+    <h1>Arju Papers Pvt Ltd</h1>
 </div>
 
 <div class="container">
@@ -154,9 +173,6 @@ th {
 
 </div>
 
-<script>
-
-  <script>
 
 <script>
 
@@ -201,7 +217,6 @@ function showPage(page) {
 
         content.innerHTML = `
             <h2>Sales Data</h2>
-
             <br>
 
             <button onclick="addSale()">➕ Add Sale</button>
@@ -235,11 +250,9 @@ function showPage(page) {
         content.innerHTML = `
 
             <h2>Purchase Data</h2>
-
             <br>
 
             <h3>➕ Add New Domestic Purchase</h3>
-
             <br>
 
             <label>📅 Purchase Date</label>
@@ -322,6 +335,7 @@ function showPage(page) {
         content.innerHTML = `
             <h2>Pending Orders</h2>
             <br>
+
             <div class="table-box">
                 <p>No pending orders.</p>
             </div>
@@ -334,6 +348,7 @@ function showPage(page) {
         content.innerHTML = `
             <h2>Completed Orders</h2>
             <br>
+
             <div class="table-box">
                 <p>No completed orders yet.</p>
             </div>
@@ -346,6 +361,7 @@ function showPage(page) {
         content.innerHTML = `
             <h2>Reports</h2>
             <br>
+
             <div class="table-box">
                 <p>Reports will be available here.</p>
             </div>
@@ -356,23 +372,20 @@ function showPage(page) {
 
 
 function addSale() {
-
     document.getElementById("saleForm").style.display = "block";
-
 }
 
 
 function saveSale() {
-
     alert("Sale Saved Successfully!");
-
 }
 
 
 function savePurchase() {
-
     alert("Purchase Saved Successfully!");
-
 }
 
 </script>
+
+</body>
+</html>
