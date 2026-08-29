@@ -279,20 +279,25 @@ function showPage(page) {
     document.getElementById("saleForm").style.display = "block";
 }
 </script>
-    function saveSale() {
+    <script>
+
+function showPage(page) {
+    // existing code
+}
+
+function addSale() {
+    document.getElementById("saleForm").style.display = "block";
+}
+
+function saveSale() {
     let date = document.getElementById("saleDate").value;
     let item = document.getElementById("itemName").value;
     let customer = document.getElementById("customerName").value;
     let amount = document.getElementById("saleAmount").value;
-
-    alert(
-        "Sale Saved!\n\n" +
-        "Date: " + date +
-        "\nItem: " + item +
-        "\nCustomer: " + customer +
-        "\nAmount: ₹ " + amount
-    );
+  alert("Sale Saved!");
 }
+
+</script>
 
 </body>
 </html>
