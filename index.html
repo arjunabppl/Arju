@@ -156,7 +156,30 @@ th {
 
 <script>
 
+  <script>
+
 function showPage(page) {
+
+    // Aapka pura existing showPage code yahan rahega
+
+}
+
+function addSale() {
+    document.getElementById("saleForm").style.display = "block";
+}
+
+function saveSale() {
+    let date = document.getElementById("saleDate").value;
+    let item = document.getElementById("itemName").value;
+    let customer = document.getElementById("customerName").value;
+    let amount = document.getElementById("saleAmount").value;
+
+    alert("Sale Saved!");
+}
+
+</script>
+
+</script>
 
     let content = document.getElementById("content");
 
