@@ -1,103 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Management App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<title>Business Management App</title>
 
-        body {
-            background: #f4f6f9;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        .header {
-            background: #1f2937;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+body {
+    background: #f4f6f9;
+}
 
-        .container {
-            display: flex;
-            min-height: 90vh;
-        }
+.header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-        .sidebar {
-            width: 220px;
-            background: #111827;
-            padding: 20px;
-        }
+.container {
+    display: flex;
+    min-height: calc(100vh - 75px);
+}
 
-        .sidebar button {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-        }
+.sidebar {
+    width: 230px;
+    background: #111827;
+    padding: 20px;
+}
 
-        .main {
-            flex: 1;
-            padding: 30px;
-        }
+.sidebar button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 15px;
+}
 
-        .cards {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.sidebar button:hover {
+    background: #d1d5db;
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            width: 220px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+.main {
+    flex: 1;
+    padding: 30px;
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-        .number {
-            font-size: 28px;
-            font-weight: bold;
-        }
-    </style>
+.card {
+    background: white;
+    padding: 25px;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.number {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #1f2937;
+    color: white;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1>Business Management Dashboard</h1>
+<div class="header">
+    <h1>Business Management Dashboard</h1>
+</div>
+
+<div class="container">
+
+    <div class="sidebar">
+        <button onclick="showPage('dashboard')">📊 Dashboard</button>
+        <button onclick="showPage('sales')">💰 Sales Data</button>
+        <button onclick="showPage('purchase')">🛒 Purchase Data</button>
+        <button onclick="showPage('pending')">⏳ Orders Pending</button>
+        <button onclick="showPage('completed')">✅ Orders Completed</button>
+        <button onclick="showPage('reports')">📑 Reports</button>
     </div>
 
-    <div class="container">
+    <div class="main" id="content">
 
-        <div class="sidebar">
-            <button>Dashboard</button>
-            <button>Sales Data</button>
-            <button>Purchase Data</button>
-            <button>Orders Pending</button>
-            <button>Orders Completed</button>
-            <button>Reports</button>
+        <h2>Dashboard</h2>
+        <br>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Sales</h3>
+                <div class="number">₹ 0</div>
+            </div>
+
+            <div class="card">
+                <h3>Total Purchase</h3>
+                <div class="number">₹ 0</div>
+            </div>
+
+            <div class="card">
+                <h3>Pending Orders</h3>
+                <div class="number">0</div>
+            </div>
+
+            <div class="card">
+                <h3>Completed Orders</h3>
+                <div class="number">0</div>
+            </div>
+
         </div>
 
-        <div class="main">
+    </div>
 
-            <h2>Dashboard</h2>
-            <br>
+</div>
 
+<script>
+
+function showPage(page) {
+
+    let content = document.getElementById("content");
+
+    if(page === "dashboard") {
+        content.innerHTML = `
+            <h2>Dashboard</h2><br>
             <div class="cards">
-
                 <div class="card">
                     <h3>Total Sales</h3>
                     <div class="number">₹ 0</div>
@@ -117,12 +183,83 @@
                     <h3>Completed Orders</h3>
                     <div class="number">0</div>
                 </div>
-
             </div>
+        `;
+    }
 
-        </div>
+    else if(page === "sales") {
+        content.innerHTML = `
+            <h2>Sales Data</h2>
+            <div class="table-box">
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Item Name</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>No Data</td>
+                        <td>--</td>
+                        <td>₹ 0</td>
+                    </tr>
+                </table>
+            </div>
+        `;
+    }
 
-    </div>
+    else if(page === "purchase") {
+        content.innerHTML = `
+            <h2>Purchase Data</h2>
+            <div class="table-box">
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Item Name</th>
+                        <th>Supplier</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>No Data</td>
+                        <td>--</td>
+                        <td>₹ 0</td>
+                    </tr>
+                </table>
+            </div>
+        `;
+    }
+
+    else if(page === "pending") {
+        content.innerHTML = `
+            <h2>Pending Orders</h2>
+            <div class="table-box">
+                <p>No pending orders.</p>
+            </div>
+        `;
+    }
+
+    else if(page === "completed") {
+        content.innerHTML = `
+            <h2>Completed Orders</h2>
+            <div class="table-box">
+                <p>No completed orders yet.</p>
+            </div>
+        `;
+    }
+
+    else if(page === "reports") {
+        content.innerHTML = `
+            <h2>Reports</h2>
+            <div class="table-box">
+                <p>Reports will be available here.</p>
+            </div>
+        `;
+    }
+}
+
+</script>
 
 </body>
 </html>
