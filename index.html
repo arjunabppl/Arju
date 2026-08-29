@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Perpetua;
 }
 
 body {
@@ -189,22 +189,16 @@ function showPage(page) {
 
     else if(page === "sales") {
         content.innerHTML = `
-           <h2>Sales Data</h2>
+           <h2>Sales</h2>
 <button onclick="addSale()">➕ Add Sale</button> 
 <div id="saleForm" style="display:none;">
     <br>
-
-    <h3>Add New Sale</h3>
-
-    <input type="date" id="saleDate">
-
-    <input type="text" id="itemName" placeholder="Item Name">
-
-    <input type="text" id="customerName" placeholder="Customer Name">
-
-    <input type="number" id="saleAmount" placeholder="Amount">
-
-    <button onclick="saveSale()">Save Sale</button>
+   <h3>Add New Sale</h3>
+ <input type="date" id="saleDate">
+ <input type="text" id="itemName" placeholder="Item Name">
+ <input type="text" id="customerName" placeholder="Customer Name">
+ <input type="number" id="saleAmount" placeholder="Amount">
+  <button onclick="saveSale()">Save Sale</button>
 </div>
             <div class="table-box">
                 <table>
@@ -227,7 +221,39 @@ function showPage(page) {
 
     else if(page === "purchase") {
         content.innerHTML = `
-            <h2>Purchase Data</h2>
+            <h2>Purchase</h2>
+           <button>Domestic Purchase</button>
+           <h2>➕ Add New Purchase</h2>
+<form>
+  <label>📅 Purchase Date</label>
+  <input type="date">
+  <label>🏢 Supplier Name</label>
+  <input type="text" placeholder="Enter Supplier Name">
+  <label>📄 Bill / Invoice Number</label>
+  <input type="text" placeholder="Enter Invoice Number">
+  <label>📦 Item Name</label>
+  <input type="text" placeholder="Enter Item Name">
+  <label>📏 Size / Specification</label>
+  <input type="text" placeholder="Example: 80 GSM - 36x23">
+  <label>🔢 Quantity</label>
+  <input type="number" placeholder="Enter Quantity">
+<label>⚖️ Unit</label>
+  <select>
+    <option>KG</option>
+    <option>TON</option>
+    <option>SHEET</option>
+    <option>REAM</option>
+  </select>
+  <label>💰 Purchase Rate</label>
+  <input type="number" placeholder="Enter Rate">
+  <label>💵 Total Amount</label>
+  <input type="number" placeholder="Total Amount">
+  <label>📝 Remarks</label>
+  <textarea placeholder="Optional Remarks"></textarea>
+  <button type="submit">Save Purchase</button>
+</form>
+
+<button>Import Purchase</button> 
             <div class="table-box">
                 <table>
                     <tr>
