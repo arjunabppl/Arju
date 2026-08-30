@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arju Papers Login</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at center, #8b9299, #353b42);
+    }
+
+    .login-box {
+      width: 90%;
+      max-width: 380px;
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #263238;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #37474f;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 18px;
+      border: 1px solid #9ea7ad;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: none;
+      border: 2px solid #455a64;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #263238;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #455a64;
+    }
+
+    #message {
+      text-align: center;
+      color: red;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+    <h2>Arju Papers Pvt Ltd</h2>
+
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+
+      <button type="submit">Login</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "arjun" && password === "1234") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("message").textContent =
+          "Username ya password galat hai";
+      }
+    });
+  </script>
+
+</body>
+</html>
