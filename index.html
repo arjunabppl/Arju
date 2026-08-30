@@ -1,10 +1,46 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+</head>
+<body>
+  <h2>Login</h2>
 
+  <form id="loginForm">
+    <label>Username:</label><br>
+    <input type="text" id="username" placeholder="Enter username" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" placeholder="Enter password" required><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="msg"></p>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const user = document.getElementById("arjun").value;
+      const pass = document.getElementById("9392487985").value;
+
+      if (user === "admin" && pass === "1234") {
+        msg.style.color = "green";
+        msg.textContent = "Login successful!";
+      } else {
+        msg.style.color = "red";
+        msg.textContent = "Wrong username or password";
+      }
+    });
+  </script>
+</body>
+</html>   
 <title>Arju Papers Pvt Ltd</title>
 
 <style>
