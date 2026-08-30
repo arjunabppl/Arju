@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Paper Mill</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #eef1f4;
+      color: #263238;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #263238, #455a64);
+      color: white;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h2 {
+      margin: 0;
+    }
+
+    .back-btn {
+      border: none;
+      background: #90a4ae;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .main {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .form-box,
+    .list-box {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    h1,
+    h2 {
+      color: #263238;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field.full {
+      grid-column: span 2;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 7px;
+      color: #455a64;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #b0bec5;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border: 2px solid #607d8b;
+    }
+
+    .save-btn {
+      margin-top: 22px;
+      border: none;
+      background: #263238;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .save-btn:hover {
+      background: #455a64;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 750px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #eceff1;
+    }
+
+    .active {
+      color: green;
+      font-weight: bold;
+    }
+
+    .delete-btn {
+      background: #e53935;
+      color: white;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 650px) {
+      .header h2 {
+        font-size: 17px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: span 1;
+      }
+
+      .form-box,
+      .list-box {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <h2>Arju Papers Pvt Ltd</h2>
+    <button class="back-btn" onclick="goDashboard()">← Dashboard</button>
+  </header>
+
+  <main class="main">
+
+    <div class="form-box">
+      <h1>Create Paper Mill</h1>
+      <p>Add paper mill or supplier details below.</p>
+
+      <form id="millForm">
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="millName">Mill Name *</label>
+            <input type="text" id="millName" placeholder="Enter mill name" required>
+          </div>
+
+          <div class="field">
+            <label for="contactPerson">Contact Person *</label>
+            <input type="text" id="contactPerson" placeholder="Enter contact person" required>
+          </div>
+
+          <div class="field">
+            <label for="mobile">Mobile Number *</label>
+            <input type="tel" id="mobile" placeholder="Enter mobile number" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter email address">
+          </div>
+
+          <div class="field">
+            <label for="gst">GST Number</label>
+            <input type="text" id="gst" placeholder="Enter GST number">
+          </div>
+
+          <div class="field">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="Enter state">
+          </div>
+
+          <div class="field full">
+            <label for="address">Mill Address *</label>
+            <textarea id="address" placeholder="Enter complete mill address" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="paperType">Main Paper Type</label>
+            <select id="paperType">
+              <option value="">Select paper type</option>
+              <option>Copier Paper</option>
+              <option>Maplitho Paper</option>
+              <option>Art Paper</option>
+              <option>Duplex Board</option>
+              <option>Kraft Paper</option>
+              <option>Newsprint Paper</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="paymentTerms">Payment Terms</label>
+            <select id="paymentTerms">
+              <option>Cash</option>
+              <option>Advance</option>
+              <option>7 Days</option>
+              <option>15 Days</option>
+              <option>30 Days</option>
+              <option>45 Days</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="transport">Transport Details</label>
+            <input type="text" id="transport" placeholder="Transport or delivery details">
+          </div>
+
+          <div class="field">
+            <label for="bank">Bank Details</label>
+            <input type="text" id="bank" placeholder="Optional bank details">
+          </div>
+
+        </div>
+
+        <button class="save-btn" type="submit">Save Mill</button>
+        <p id="message"></p>
+
+      </form>
+    </div>
+
+    <div class="list-box">
+      <h2>Mill List</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Mill Name</th>
+              <th>Contact Person</th>
+              <th>Mobile</th>
+              <th>Paper Type</th>
+              <th>Payment Terms</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="millList">
+            <tr>
+              <td colspan="7">No mill added yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let mills = JSON.parse(localStorage.getItem("mills")) || [];
+
+    document.getElementById("millForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const mill = {
+        name: document.getElementById("millName").value,
+        contact: document.getElementById("contactPerson").value,
+        mobile: document.getElementById("mobile").value,
+        email: document.getElementById("email").value,
+        gst: document.getElementById("gst").value,
+        state: document.getElementById("state").value,
+        address: document.getElementById("address").value,
+        paperType: document.getElementById("paperType").value,
+        paymentTerms: document.getElementById("paymentTerms").value,
+        transport: document.getElementById("transport").value,
+        bank: document.getElementById("bank").value
+      };
+
+      mills.push(mill);
+      localStorage.setItem("mills", JSON.stringify(mills));
+
+      document.getElementById("message").style.color = "green";
+      document.getElementById("message").textContent =
+        "Mill successfully save ho gaya.";
+
+      document.getElementById("millForm").reset();
+      displayMills();
+    });
+
+    function displayMills() {
+      const list = document.getElementById("millList");
+
+      if (mills.length === 0) {
+        list.innerHTML = `
+          <tr>
+            <td colspan="7">No mill added yet.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      list.innerHTML = "";
+
+      mills.forEach(function(mill, index) {
+        list.innerHTML += `
+          <tr>
+            <td>${mill.name}</td>
+            <td>${mill.contact}</td>
+            <td>${mill.mobile}</td>
+            <td>${mill.paperType || "-"}</td>
+            <td>${mill.paymentTerms}</td>
+            <td class="active">Active</td>
+            <td>
+              <button class="delete-btn" onclick="deleteMill(${index})">
+                Delete
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    function deleteMill(index) {
+      if (confirm("Kya aap is mill ko delete karna chahte hain?")) {
+        mills.splice(index, 1);
+        localStorage.setItem("mills", JSON.stringify(mills));
+        displayMills();
+      }
+    }
+
+    function goDashboard() {
+      window.location.href = "dashboard.html";
+    }
+
+    displayMills();
+  </script>
+
+</body>
+</html>
