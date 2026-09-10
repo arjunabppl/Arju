@@ -1,1014 +1,1272 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Create Paper Mill | Arju Papers Pvt Ltd</title>
+<title>Supplier Master | Arju Papers Pvt Ltd</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: #f4f6f8;
-      color: #263238;
-    }
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #263238;
+}
 
-    /* HEADER */
-    .header {
-      background: linear-gradient(135deg, #263238, #37474f);
-      color: #fff;
-      padding: 18px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    }
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #263238, #37474f);
+  color: white;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
 
-    .header h2 {
-      margin: 0;
-      font-size: 21px;
-      font-weight: 600;
-    }
+.header h2 {
+  margin: 0;
+  font-size: 21px;
+}
 
-    .back-btn {
-      border: none;
-      background: #607d8b;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: 0.2s;
-    }
+.back-btn {
+  border: none;
+  background: #607d8b;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    .back-btn:hover {
-      background: #78909c;
-    }
+.back-btn:hover {
+  background: #78909c;
+}
 
-    /* MAIN */
-    .main {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 18px;
-    }
+/* MAIN */
+.main {
+  max-width: 1150px;
+  margin: 30px auto;
+  padding: 0 18px;
+}
 
-    /* CARDS */
-    .form-box,
-    .list-box {
-      background: #fff;
-      padding: 28px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-      border: 1px solid #e4e7ea;
-    }
+/* CARD */
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  border: 1px solid #e3e7ea;
+}
 
-    .page-title {
-      margin: 0 0 6px;
-      color: #263238;
-      font-size: 25px;
-    }
+.page-title {
+  margin: 0 0 5px;
+  font-size: 25px;
+}
 
-    .subtitle {
-      margin: 0 0 25px;
-      color: #607d8b;
-      font-size: 14px;
-    }
+.subtitle {
+  margin: 0 0 25px;
+  color: #607d8b;
+  font-size: 14px;
+}
 
-    .section-title {
-      margin: 0 0 20px;
-      font-size: 20px;
-      color: #263238;
-    }
+/* SECTION */
+.section-title {
+  font-size: 17px;
+  color: #37474f;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin: 25px 0 18px;
+}
 
-    /* FORM */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px 22px;
-    }
+.section-title:first-child {
+  margin-top: 0;
+}
 
-    .field {
-      display: flex;
-      flex-direction: column;
-    }
+/* FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px 20px;
+}
 
-    .field.full {
-      grid-column: span 2;
-    }
+.field {
+  display: flex;
+  flex-direction: column;
+}
 
-    label {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 7px;
-      color: #37474f;
-    }
+.full {
+  grid-column: span 3;
+}
 
-    .required {
-      color: #d32f2f;
-    }
+label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: #455a64;
+}
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px 13px;
-      border: 1px solid #cfd8dc;
-      border-radius: 6px;
-      background: #fff;
-      color: #263238;
-      font-size: 14px;
-      transition: 0.2s;
-    }
+.required {
+  color: #d32f2f;
+}
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #607d8b;
-      box-shadow: 0 0 0 3px rgba(96, 125, 139, 0.12);
-    }
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #263238;
+  background: white;
+}
 
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #607d8b;
+  box-shadow: 0 0 0 3px rgba(96,125,139,0.10);
+}
 
-    /* BUTTONS */
-    .form-actions {
-      margin-top: 25px;
-      display: flex;
-      gap: 10px;
-    }
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
 
-    .save-btn {
-      border: none;
-      background: #263238;
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-    }
+/* BUTTONS */
+.actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+}
 
-    .save-btn:hover {
-      background: #37474f;
-    }
+.save-btn {
+  background: #263238;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-    .clear-btn {
-      border: 1px solid #cfd8dc;
-      background: #fff;
-      color: #455a64;
-      padding: 12px 22px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
+.save-btn:hover {
+  background: #37474f;
+}
 
-    .clear-btn:hover {
-      background: #f5f5f5;
-    }
+.clear-btn {
+  background: white;
+  color: #455a64;
+  border: 1px solid #cfd8dc;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    #message {
-      margin: 15px 0 0;
-      font-size: 14px;
-      font-weight: 600;
-    }
+.clear-btn:hover {
+  background: #f5f5f5;
+}
 
-    /* SEARCH */
-    .list-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
+#message {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-    .search-box {
-      width: 280px;
-      padding: 10px 12px;
-      border: 1px solid #cfd8dc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
+/* LIST HEADER */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
 
-    /* TABLE */
-    .table-wrapper {
-      overflow-x: auto;
-      border: 1px solid #e0e0e0;
-      border-radius: 7px;
-    }
+.list-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
 
-    table {
-      width: 100%;
-      min-width: 900px;
-      border-collapse: collapse;
-    }
+.search {
+  width: 280px;
+}
 
-    th,
-    td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #eceff1;
-      text-align: left;
-      font-size: 13px;
-      white-space: nowrap;
-    }
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 7px;
+}
 
-    th {
-      background: #f5f7f8;
-      color: #37474f;
-      font-weight: 600;
-    }
+table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
 
-    tbody tr:hover {
-      background: #fafafa;
-    }
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eceff1;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 13px;
+}
 
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
+th {
+  background: #f5f7f8;
+  color: #37474f;
+}
 
-    .status {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #2e7d32;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-    }
+tr:hover {
+  background: #fafafa;
+}
 
-    .action-buttons {
-      display: flex;
-      gap: 6px;
-    }
+.status {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
 
-    .edit-btn,
-    .delete-btn {
-      border: none;
-      padding: 7px 11px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-    }
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
 
-    .edit-btn {
-      background: #e3f2fd;
-      color: #1565c0;
-    }
+.edit-btn {
+  background: #e3f2fd;
+  color: #1565c0;
+}
 
-    .edit-btn:hover {
-      background: #bbdefb;
-    }
+.delete-btn {
+  background: #ffebee;
+  color: #c62828;
+  margin-left: 5px;
+}
 
-    .delete-btn {
-      background: #ffebee;
-      color: #c62828;
-    }
+.empty {
+  text-align: center;
+  color: #78909c;
+  padding: 25px;
+}
 
-    .delete-btn:hover {
-      background: #ffcdd2;
-    }
+/* MOBILE */
+@media (max-width: 800px) {
 
-    .empty-row {
-      text-align: center;
-      color: #78909c;
-      padding: 25px;
-    }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .header {
-        padding: 15px;
-      }
+  .full {
+    grid-column: span 1;
+  }
 
-      .header h2 {
-        font-size: 17px;
-      }
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
 
-      .main {
-        margin-top: 20px;
-        padding: 0 12px;
-      }
+  .search {
+    width: 100%;
+  }
 
-      .form-box,
-      .list-box {
-        padding: 18px;
-      }
+  .card {
+    padding: 18px;
+  }
 
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .field.full {
-        grid-column: span 1;
-      }
-
-      .list-header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .search-box {
-        width: 100%;
-      }
-
-      .form-actions {
-        flex-direction: column;
-      }
-    }
-  </style>
+  .header {
+    padding: 15px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h2>Arju Papers Pvt Ltd</h2>
+<!-- HEADER -->
+<header class="header">
 
-    <button class="back-btn" onclick="goDashboard()">
-      ← Dashboard
-    </button>
-  </header>
+  <h2>Arju Papers Pvt Ltd</h2>
 
+  <button class="back-btn" onclick="goDashboard()">
+    ← Dashboard
+  </button>
 
-  <main class="main">
-
-    <!-- CREATE MILL FORM -->
-    <section class="form-box">
-
-      <h1 class="page-title">Create Paper Mill</h1>
-
-      <p class="subtitle">
-        Create Vendor And Party
-      </p>
-
-      <form id="millForm">
-
-        <div class="form-grid">
-
-          <!-- Vendor -->
-          <div class="field">
-            <label for="Vendor Name">
-              Vendor <span class="required">*</span>
-            </label>
-
-            <input
-              type="text"
-              id="millName"
-              placeholder="Enter name"
-              required
-            >
-          </div>
+</header>
 
 
-          <!-- CONTACT PERSON -->
-          <div class="field">
-            <label for="contactPerson">
-              Contact Person <span class="required">*</span>
-            </label>
+<main class="main">
 
-            <input
-              type="text"
-              id="contactPerson"
-              placeholder="Enter contact person"
-              required
-            >
-          </div>
+<!-- SUPPLIER FORM -->
+<div class="card">
+
+  <h1 class="page-title">Supplier Master</h1>
+
+  <p class="subtitle">
+    Create and manage supplier master information.
+  </p>
 
 
-          <!-- MOBILE -->
-          <div class="field">
-            <label for="mobile">
-              Mobile Number <span class="required">*</span>
-            </label>
+  <form id="supplierForm">
 
-            <input
-              type="tel"
-              id="mobile"
-              placeholder="Enter 10-digit mobile number"
-              maxlength="10"
-              pattern="[0-9]{10}"
-              required
-            >
-          </div>
+    <!-- BASIC DETAILS -->
+    <h3 class="section-title">1. Supplier Basic Details</h3>
 
+    <div class="form-grid">
 
-          <!-- EMAIL -->
-          <div class="field">
-            <label for="email">Email Address</label>
-
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter email address"
-            >
-          </div>
-
-
-          <!-- GST -->
-          <div class="field">
-            <label for="gst">GST Number</label>
-
-            <input
-              type="text"
-              id="gst"
-              placeholder="Enter GST number"
-              maxlength="15"
-              style="text-transform: uppercase;"
-            >
-          </div>
-
-
-          <!-- STATE -->
-          <div class="field">
-            <label for="state">State</label>
-
-            <select id="state">
-              <option value="">Select state</option>
-              <option>Andhra Pradesh</option>
-              <option>Assam</option>
-              <option>Bihar</option>
-              <option>Chhattisgarh</option>
-              <option>Delhi</option>
-              <option>Gujarat</option>
-              <option>Haryana</option>
-              <option>Jharkhand</option>
-              <option>Karnataka</option>
-              <option>Kerala</option>
-              <option>Madhya Pradesh</option>
-              <option>Maharashtra</option>
-              <option>Odisha</option>
-              <option>Punjab</option>
-              <option>Rajasthan</option>
-              <option>Tamil Nadu</option>
-              <option>Telangana</option>
-              <option>Uttar Pradesh</option>
-              <option>Uttarakhand</option>
-              <option>West Bengal</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-
-          <!-- ADDRESS -->
-          <div class="field full">
-            <label for="address">
-              Mill Address <span class="required">*</span>
-            </label>
-
-            <textarea
-              id="address"
-              placeholder="Enter complete mill address"
-              required
-            ></textarea>
-          </div>
-
-
-          <!-- PAPER TYPE -->
-          <div class="field">
-            <label for="paperType">Main Paper Type</label>
-
-            <select id="paperType">
-              <option value="">Select paper type</option>
-              <option>Copier Paper</option>
-              <option>Maplitho Paper</option>
-              <option>C2S Paper</option>
-              <option>Art Paper</option>
-              <option>Duplex Board</option>
-              <option>Kraft Paper</option>
-              <option>Newsprint Paper</option>
-              <option>MG Paper</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-
-          <!-- PAYMENT TERMS -->
-          <div class="field">
-            <label for="paymentTerms">Payment Terms</label>
-
-            <select id="paymentTerms">
-              <option>Cash</option>
-              <option>Advance</option>
-              <option>7 Days</option>
-              <option>15 Days</option>
-              <option>30 Days</option>
-              <option>45 Days</option>
-              <option>60 Days</option>
-              <option>90 Days</option>
-            </select>
-          </div>
-
-
-          <!-- TRANSPORT -->
-          <div class="field">
-            <label for="transport">Transport Details</label>
-
-            <input
-              type="text"
-              id="transport"
-              placeholder="Enter transport details"
-            >
-          </div>
-
-
-          <!-- BANK -->
-          <div class="field">
-            <label for="bank">Bank Details</label>
-
-            <input
-              type="text"
-              id="bank"
-              placeholder="Enter bank details"
-            >
-          </div>
-
-        </div>
-
-
-        <!-- ACTION BUTTONS -->
-        <div class="form-actions">
-
-          <button
-            class="save-btn"
-            type="submit"
-            id="saveButton"
-          >
-            Save Mill
-          </button>
-
-          <button
-            class="clear-btn"
-            type="button"
-            onclick="clearForm()"
-          >
-            Clear
-          </button>
-
-        </div>
-
-        <p id="message"></p>
-
-      </form>
-
-    </section>
-
-
-    <!-- MILL LIST -->
-    <section class="list-box">
-
-      <div class="list-header">
-
-        <h2 class="section-title">
-          Paper Mill List
-        </h2>
+      <div class="field">
+        <label>
+          Supplier Name <span class="required">*</span>
+        </label>
 
         <input
           type="text"
-          id="searchMill"
-          class="search-box"
-          placeholder="Search mill name..."
-          oninput="searchMills()"
+          id="supplierName"
+          placeholder="Enter legal supplier name"
+          required
         >
-
       </div>
 
 
-      <div class="table-wrapper">
+      <div class="field">
+        <label>Supplier Type</label>
 
-        <table>
-
-          <thead>
-            <tr>
-              <th>Mill Name</th>
-              <th>Contact Person</th>
-              <th>Mobile</th>
-              <th>Paper Type</th>
-              <th>Payment Terms</th>
-              <th>State</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-
-          <tbody id="millList"></tbody>
-
-        </table>
-
+        <select id="supplierType">
+          <option value="">Select supplier type</option>
+          <option>Paper Mill</option>
+          <option>Distributor</option>
+          <option>Trader</option>
+          <option>Manufacturer</option>
+          <option>Importer</option>
+          <option>Transporter</option>
+          <option>Other</option>
+        </select>
       </div>
 
-    </section>
 
-  </main>
+      <div class="field">
+        <label>Supplier Code</label>
+
+        <input
+          type="text"
+          id="supplierCode"
+          placeholder="Example: SUP-001"
+        >
+      </div>
+
+    </div>
 
 
-  <script>
+    <!-- CONTACT DETAILS -->
+    <h3 class="section-title">2. Contact Details</h3>
 
-    /* LOAD EXISTING DATA */
-    let mills = JSON.parse(localStorage.getItem("mills")) || [];
+    <div class="form-grid">
 
-    let editIndex = -1;
+      <div class="field">
+        <label>
+          Contact Person <span class="required">*</span>
+        </label>
+
+        <input
+          type="text"
+          id="contactPerson"
+          placeholder="Enter contact person"
+          required
+        >
+      </div>
 
 
-    /* FORM SUBMIT */
+      <div class="field">
+        <label>Mobile Number <span class="required">*</span></label>
+
+        <input
+          type="tel"
+          id="mobile"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+          required
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Alternate Mobile</label>
+
+        <input
+          type="tel"
+          id="alternateMobile"
+          placeholder="Alternate contact number"
+          maxlength="10"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Email Address</label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="supplier@example.com"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Website</label>
+
+        <input
+          type="text"
+          id="website"
+          placeholder="www.example.com"
+        >
+      </div>
+
+    </div>
+
+
+    <!-- TAX DETAILS -->
+    <h3 class="section-title">3. GST & Tax Details</h3>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>GST Registration Status</label>
+
+        <select id="gstStatus">
+          <option value="">Select status</option>
+          <option>Regular</option>
+          <option>Composition</option>
+          <option>Unregistered</option>
+          <option>Nil GST</option>
+        </select>
+      </div>
+
+
+      <div class="field">
+        <label>GSTIN</label>
+
+        <input
+          type="text"
+          id="gstin"
+          placeholder="15-digit GSTIN"
+          maxlength="15"
+          style="text-transform:uppercase"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>PAN Number</label>
+
+        <input
+          type="text"
+          id="pan"
+          placeholder="PAN number"
+          maxlength="10"
+          style="text-transform:uppercase"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>HSN / SAC</label>
+
+        <input
+          type="text"
+          id="hsn"
+          placeholder="Default HSN / SAC"
+        >
+      </div>
+
+    </div>
+
+
+    <!-- ADDRESS -->
+    <h3 class="section-title">4. Address Details</h3>
+
+    <div class="form-grid">
+
+      <div class="field full">
+        <label>
+          Registered Address <span class="required">*</span>
+        </label>
+
+        <textarea
+          id="address"
+          placeholder="Enter complete registered address"
+          required
+        ></textarea>
+      </div>
+
+
+      <div class="field">
+        <label>City</label>
+
+        <input
+          type="text"
+          id="city"
+          placeholder="Enter city"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>State</label>
+
+        <select id="state">
+          <option value="">Select state</option>
+          <option>Andhra Pradesh</option>
+          <option>Assam</option>
+          <option>Bihar</option>
+          <option>Chhattisgarh</option>
+          <option>Delhi</option>
+          <option>Gujarat</option>
+          <option>Haryana</option>
+          <option>Jharkhand</option>
+          <option>Karnataka</option>
+          <option>Kerala</option>
+          <option>Madhya Pradesh</option>
+          <option>Maharashtra</option>
+          <option>Odisha</option>
+          <option>Punjab</option>
+          <option>Rajasthan</option>
+          <option>Tamil Nadu</option>
+          <option>Telangana</option>
+          <option>Uttar Pradesh</option>
+          <option>Uttarakhand</option>
+          <option>West Bengal</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+
+      <div class="field">
+        <label>PIN Code</label>
+
+        <input
+          type="text"
+          id="pincode"
+          placeholder="6-digit PIN code"
+          maxlength="6"
+        >
+      </div>
+
+    </div>
+
+
+    <!-- BANK DETAILS -->
+    <h3 class="section-title">5. Bank Details</h3>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Bank Name</label>
+
+        <input
+          type="text"
+          id="bankName"
+          placeholder="Enter bank name"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Account Number</label>
+
+        <input
+          type="text"
+          id="accountNumber"
+          placeholder="Enter account number"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>IFSC Code</label>
+
+        <input
+          type="text"
+          id="ifsc"
+          placeholder="Enter IFSC code"
+          style="text-transform:uppercase"
+        >
+      </div>
+
+    </div>
+
+
+    <!-- COMMERCIAL TERMS -->
+    <h3 class="section-title">6. Commercial Terms</h3>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Payment Terms</label>
+
+        <select id="paymentTerms">
+          <option>Advance</option>
+          <option>Cash</option>
+          <option>7 Days</option>
+          <option>15 Days</option>
+          <option>30 Days</option>
+          <option>45 Days</option>
+          <option>60 Days</option>
+          <option>90 Days</option>
+        </select>
+      </div>
+
+
+      <div class="field">
+        <label>Credit Limit</label>
+
+        <input
+          type="number"
+          id="creditLimit"
+          placeholder="Enter credit limit"
+          min="0"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Default Transport</label>
+
+        <input
+          type="text"
+          id="transport"
+          placeholder="Transporter / delivery details"
+        >
+      </div>
+
+
+      <div class="field">
+        <label>Supplier Status</label>
+
+        <select id="status">
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </div>
+
+
+      <div class="field full">
+        <label>Remarks</label>
+
+        <textarea
+          id="remarks"
+          placeholder="Enter additional supplier remarks"
+        ></textarea>
+      </div>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+    <div class="actions">
+
+      <button
+        type="submit"
+        class="save-btn"
+        id="saveBtn"
+      >
+        Save Supplier
+      </button>
+
+      <button
+        type="button"
+        class="clear-btn"
+        onclick="clearForm()"
+      >
+        Clear
+      </button>
+
+    </div>
+
+    <p id="message"></p>
+
+  </form>
+
+</div>
+
+
+<!-- SUPPLIER LIST -->
+<div class="card">
+
+  <div class="list-header">
+
+    <h2>Supplier List</h2>
+
+    <input
+      type="text"
+      id="search"
+      class="search"
+      placeholder="Search supplier..."
+      oninput="searchSuppliers()"
+    >
+
+  </div>
+
+
+  <div class="table-wrapper">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Supplier Code</th>
+          <th>Supplier Name</th>
+          <th>Type</th>
+          <th>Contact Person</th>
+          <th>Mobile</th>
+          <th>GSTIN</th>
+          <th>State</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="supplierList"></tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+</main>
+
+
+<script>
+
+/* LOAD SUPPLIERS */
+
+let suppliers =
+  JSON.parse(localStorage.getItem("suppliers")) || [];
+
+let editIndex = -1;
+
+
+/* FORM SUBMIT */
+
+document
+.getElementById("supplierForm")
+.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+
+  const mobile =
+    document.getElementById("mobile").value.trim();
+
+
+  if (!/^[0-9]{10}$/.test(mobile)) {
+
+    showMessage(
+      "Please enter a valid 10-digit mobile number.",
+      "red"
+    );
+
+    return;
+  }
+
+
+  const supplier = {
+
+    supplierName:
+      document.getElementById("supplierName").value.trim(),
+
+    supplierType:
+      document.getElementById("supplierType").value,
+
+    supplierCode:
+      document.getElementById("supplierCode").value.trim(),
+
+    contactPerson:
+      document.getElementById("contactPerson").value.trim(),
+
+    mobile: mobile,
+
+    alternateMobile:
+      document.getElementById("alternateMobile").value.trim(),
+
+    email:
+      document.getElementById("email").value.trim(),
+
+    website:
+      document.getElementById("website").value.trim(),
+
+    gstStatus:
+      document.getElementById("gstStatus").value,
+
+    gstin:
+      document.getElementById("gstin").value.trim().toUpperCase(),
+
+    pan:
+      document.getElementById("pan").value.trim().toUpperCase(),
+
+    hsn:
+      document.getElementById("hsn").value.trim(),
+
+    address:
+      document.getElementById("address").value.trim(),
+
+    city:
+      document.getElementById("city").value.trim(),
+
+    state:
+      document.getElementById("state").value,
+
+    pincode:
+      document.getElementById("pincode").value.trim(),
+
+    bankName:
+      document.getElementById("bankName").value.trim(),
+
+    accountNumber:
+      document.getElementById("accountNumber").value.trim(),
+
+    ifsc:
+      document.getElementById("ifsc").value.trim().toUpperCase(),
+
+    paymentTerms:
+      document.getElementById("paymentTerms").value,
+
+    creditLimit:
+      document.getElementById("creditLimit").value,
+
+    transport:
+      document.getElementById("transport").value.trim(),
+
+    status:
+      document.getElementById("status").value,
+
+    remarks:
+      document.getElementById("remarks").value.trim()
+
+  };
+
+
+  /* UPDATE */
+
+  if (editIndex >= 0) {
+
+    suppliers[editIndex] = supplier;
+
+    editIndex = -1;
+
+    document.getElementById("saveBtn").textContent =
+      "Save Supplier";
+
+    showMessage(
+      "Supplier details updated successfully.",
+      "green"
+    );
+
+  }
+
+  /* NEW SUPPLIER */
+
+  else {
+
+    suppliers.push(supplier);
+
+    showMessage(
+      "Supplier saved successfully.",
+      "green"
+    );
+
+  }
+
+
+  localStorage.setItem(
+    "suppliers",
+    JSON.stringify(suppliers)
+  );
+
+
+  clearForm(false);
+
+  displaySuppliers();
+
+});
+
+
+/* DISPLAY SUPPLIERS */
+
+function displaySuppliers(data = suppliers) {
+
+  const list =
+    document.getElementById("supplierList");
+
+
+  if (data.length === 0) {
+
+    list.innerHTML = `
+      <tr>
+        <td colspan="9" class="empty">
+          No supplier records found.
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  list.innerHTML = "";
+
+
+  data.forEach(function(supplier) {
+
+    const index =
+      suppliers.indexOf(supplier);
+
+
+    list.innerHTML += `
+
+      <tr>
+
+        <td>
+          ${supplier.supplierCode || "-"}
+        </td>
+
+        <td>
+          <strong>
+            ${escapeHTML(supplier.supplierName)}
+          </strong>
+        </td>
+
+        <td>
+          ${supplier.supplierType || "-"}
+        </td>
+
+        <td>
+          ${escapeHTML(supplier.contactPerson)}
+        </td>
+
+        <td>
+          ${supplier.mobile}
+        </td>
+
+        <td>
+          ${supplier.gstin || "-"}
+        </td>
+
+        <td>
+          ${supplier.state || "-"}
+        </td>
+
+        <td>
+          <span class="status">
+            ${supplier.status}
+          </span>
+        </td>
+
+        <td>
+
+          <button
+            class="edit-btn"
+            onclick="editSupplier(${index})"
+          >
+            Edit
+          </button>
+
+          <button
+            class="delete-btn"
+            onclick="deleteSupplier(${index})"
+          >
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+    `;
+
+  });
+
+}
+
+
+/* EDIT */
+
+function editSupplier(index) {
+
+  const s = suppliers[index];
+
+
+  document.getElementById("supplierName").value =
+    s.supplierName;
+
+  document.getElementById("supplierType").value =
+    s.supplierType;
+
+  document.getElementById("supplierCode").value =
+    s.supplierCode;
+
+  document.getElementById("contactPerson").value =
+    s.contactPerson;
+
+  document.getElementById("mobile").value =
+    s.mobile;
+
+  document.getElementById("alternateMobile").value =
+    s.alternateMobile;
+
+  document.getElementById("email").value =
+    s.email;
+
+  document.getElementById("website").value =
+    s.website;
+
+  document.getElementById("gstStatus").value =
+    s.gstStatus;
+
+  document.getElementById("gstin").value =
+    s.gstin;
+
+  document.getElementById("pan").value =
+    s.pan;
+
+  document.getElementById("hsn").value =
+    s.hsn;
+
+  document.getElementById("address").value =
+    s.address;
+
+  document.getElementById("city").value =
+    s.city;
+
+  document.getElementById("state").value =
+    s.state;
+
+  document.getElementById("pincode").value =
+    s.pincode;
+
+  document.getElementById("bankName").value =
+    s.bankName;
+
+  document.getElementById("accountNumber").value =
+    s.accountNumber;
+
+  document.getElementById("ifsc").value =
+    s.ifsc;
+
+  document.getElementById("paymentTerms").value =
+    s.paymentTerms;
+
+  document.getElementById("creditLimit").value =
+    s.creditLimit;
+
+  document.getElementById("transport").value =
+    s.transport;
+
+  document.getElementById("status").value =
+    s.status;
+
+  document.getElementById("remarks").value =
+    s.remarks;
+
+
+  editIndex = index;
+
+
+  document.getElementById("saveBtn").textContent =
+    "Update Supplier";
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+
+  showMessage(
+    "Editing supplier details.",
+    "#1565c0"
+  );
+
+}
+
+
+/* DELETE */
+
+function deleteSupplier(index) {
+
+  const name =
+    suppliers[index].supplierName;
+
+
+  if (
+    confirm(
+      "Are you sure you want to delete " +
+      name +
+      "?"
+    )
+  ) {
+
+    suppliers.splice(index, 1);
+
+    localStorage.setItem(
+      "suppliers",
+      JSON.stringify(suppliers)
+    );
+
+    displaySuppliers();
+
+    showMessage(
+      "Supplier deleted successfully.",
+      "green"
+    );
+
+  }
+
+}
+
+
+/* SEARCH */
+
+function searchSuppliers() {
+
+  const value =
     document
-      .getElementById("millForm")
-      .addEventListener("submit", function(event) {
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
 
-        event.preventDefault();
 
-        const mobile = document
-          .getElementById("mobile")
-          .value.trim();
+  if (!value) {
 
-        if (!/^[0-9]{10}$/.test(mobile)) {
+    displaySuppliers();
 
-          showMessage(
-            "Please enter a valid 10-digit mobile number.",
-            "red"
-          );
+    return;
+  }
 
-          return;
-        }
 
+  const filtered =
+    suppliers.filter(function(s) {
 
-        const mill = {
+      return (
 
-          name: document
-            .getElementById("millName")
-            .value.trim(),
+        s.supplierName
+          .toLowerCase()
+          .includes(value)
 
-          contact: document
-            .getElementById("contactPerson")
-            .value.trim(),
+        ||
 
-          mobile: mobile,
+        s.supplierCode
+          .toLowerCase()
+          .includes(value)
 
-          email: document
-            .getElementById("email")
-            .value.trim(),
+        ||
 
-          gst: document
-            .getElementById("gst")
-            .value.trim()
-            .toUpperCase(),
+        s.contactPerson
+          .toLowerCase()
+          .includes(value)
 
-          state: document
-            .getElementById("state")
-            .value,
+        ||
 
-          address: document
-            .getElementById("address")
-            .value.trim(),
+        s.state
+          .toLowerCase()
+          .includes(value)
 
-          paperType: document
-            .getElementById("paperType")
-            .value,
-
-          paymentTerms: document
-            .getElementById("paymentTerms")
-            .value,
-
-          transport: document
-            .getElementById("transport")
-            .value.trim(),
-
-          bank: document
-            .getElementById("bank")
-            .value.trim()
-
-        };
-
-
-        /* EDIT EXISTING MILL */
-        if (editIndex >= 0) {
-
-          mills[editIndex] = mill;
-
-          editIndex = -1;
-
-          document.getElementById("saveButton").textContent =
-            "Save Mill";
-
-          showMessage(
-            "Mill details updated successfully.",
-            "green"
-          );
-
-        }
-
-        /* ADD NEW MILL */
-        else {
-
-          mills.push(mill);
-
-          showMessage(
-            "Mill saved successfully.",
-            "green"
-          );
-        }
-
-
-        localStorage.setItem(
-          "mills",
-          JSON.stringify(mills)
-        );
-
-
-        document
-          .getElementById("millForm")
-          .reset();
-
-        displayMills();
-
-      });
-
-
-    /* DISPLAY MILLS */
-    function displayMills(filteredMills = mills) {
-
-      const list =
-        document.getElementById("millList");
-
-
-      if (filteredMills.length === 0) {
-
-        list.innerHTML = `
-          <tr>
-            <td colspan="8" class="empty-row">
-              No paper mill records found.
-            </td>
-          </tr>
-        `;
-
-        return;
-      }
-
-
-      list.innerHTML = "";
-
-
-      filteredMills.forEach(function(mill) {
-
-        const originalIndex =
-          mills.indexOf(mill);
-
-
-        list.innerHTML += `
-
-          <tr>
-
-            <td><strong>${escapeHTML(mill.name)}</strong></td>
-
-            <td>${escapeHTML(mill.contact)}</td>
-
-            <td>${escapeHTML(mill.mobile)}</td>
-
-            <td>${escapeHTML(mill.paperType || "-")}</td>
-
-            <td>${escapeHTML(mill.paymentTerms || "-")}</td>
-
-            <td>${escapeHTML(mill.state || "-")}</td>
-
-            <td>
-              <span class="status">
-                Active
-              </span>
-            </td>
-
-            <td>
-
-              <div class="action-buttons">
-
-                <button
-                  class="edit-btn"
-                  onclick="editMill(${originalIndex})"
-                >
-                  Edit
-                </button>
-
-                <button
-                  class="delete-btn"
-                  onclick="deleteMill(${originalIndex})"
-                >
-                  Delete
-                </button>
-
-              </div>
-
-            </td>
-
-          </tr>
-
-        `;
-
-      });
-
-    }
-
-
-    /* EDIT MILL */
-    function editMill(index) {
-
-      const mill = mills[index];
-
-      document.getElementById("millName").value =
-        mill.name;
-
-      document.getElementById("contactPerson").value =
-        mill.contact;
-
-      document.getElementById("mobile").value =
-        mill.mobile;
-
-      document.getElementById("email").value =
-        mill.email;
-
-      document.getElementById("gst").value =
-        mill.gst;
-
-      document.getElementById("state").value =
-        mill.state;
-
-      document.getElementById("address").value =
-        mill.address;
-
-      document.getElementById("paperType").value =
-        mill.paperType;
-
-      document.getElementById("paymentTerms").value =
-        mill.paymentTerms;
-
-      document.getElementById("transport").value =
-        mill.transport;
-
-      document.getElementById("bank").value =
-        mill.bank;
-
-
-      editIndex = index;
-
-
-      document.getElementById("saveButton").textContent =
-        "Update Mill";
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-
-      showMessage(
-        "You are editing this mill record.",
-        "#1565c0"
       );
 
-    }
+    });
 
 
-    /* DELETE MILL */
-    function deleteMill(index) {
+  displaySuppliers(filtered);
 
-      const millName =
-        mills[index].name;
+}
 
 
-      if (
-        confirm(
-          "Are you sure you want to delete " +
-          millName +
-          "?"
-        )
-      ) {
+/* CLEAR */
 
-        mills.splice(index, 1);
+function clearForm(show = true) {
 
-        localStorage.setItem(
-          "mills",
-          JSON.stringify(mills)
-        );
+  document
+    .getElementById("supplierForm")
+    .reset();
 
-        displayMills();
+  editIndex = -1;
 
-        showMessage(
-          "Mill deleted successfully.",
-          "green"
-        );
+  document.getElementById("saveBtn").textContent =
+    "Save Supplier";
 
-      }
+  if (show) {
 
-    }
+    document.getElementById("message").textContent =
+      "";
+
+  }
+
+}
 
 
-    /* SEARCH */
-    function searchMills() {
+/* MESSAGE */
 
-      const search =
-        document
-          .getElementById("searchMill")
-          .value
-          .toLowerCase()
-          .trim();
+function showMessage(text, color) {
 
+  const message =
+    document.getElementById("message");
 
-      if (search === "") {
+  message.style.color = color;
 
-        displayMills();
+  message.textContent = text;
 
-        return;
-      }
+}
 
 
-      const filtered =
-        mills.filter(function(mill) {
+/* HTML ESCAPE */
 
-          return (
-            mill.name
-              .toLowerCase()
-              .includes(search) ||
+function escapeHTML(value) {
 
-            mill.contact
-              .toLowerCase()
-              .includes(search) ||
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
-            mill.state
-              .toLowerCase()
-              .includes(search)
-          );
-
-        });
+}
 
 
-      displayMills(filtered);
+/* DASHBOARD */
 
-    }
+function goDashboard() {
 
+  window.location.href =
+    "dashboard.html";
 
-    /* CLEAR FORM */
-    function clearForm() {
-
-      document
-        .getElementById("millForm")
-        .reset();
-
-      editIndex = -1;
-
-      document.getElementById("saveButton").textContent =
-        "Save Mill";
-
-      document.getElementById("message").textContent = "";
-
-    }
+}
 
 
-    /* MESSAGE */
-    function showMessage(text, color) {
+/* INITIAL DISPLAY */
 
-      const message =
-        document.getElementById("message");
+displaySuppliers();
 
-      message.style.color = color;
-
-      message.textContent = text;
-
-    }
-
-
-    /* SECURITY / HTML ESCAPE */
-    function escapeHTML(value) {
-
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-    }
-
-
-    /* DASHBOARD */
-    function goDashboard() {
-
-      window.location.href =
-        "dashboard.html";
-
-    }
-
-
-    /* INITIAL LOAD */
-    displayMills();
-
-  </script>
+</script>
 
 </body>
 </html>
