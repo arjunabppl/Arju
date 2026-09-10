@@ -633,8 +633,10 @@
       document.getElementById("formTitle")
         .textContent = title;
 
-      document.getElementById("formFrame")
-        .src = page;
+      document.getElementById("formFrame").srcdoc = "";
+
+document.getElementById("formFrame")
+  .src = page;
 
       setActive(button);
 
