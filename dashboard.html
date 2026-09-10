@@ -622,94 +622,95 @@
 
     /* ================= OPEN PAGE ================= */
 
-    function openPage(page, title, button) {
+function openPage(page, title, button) {
 
-      document.getElementById("dashboardContent")
-        .style.display = "none";
+  document.getElementById("dashboardContent").style.display = "none";
 
-      document.getElementById("formContent")
-        .style.display = "block";
+  document.getElementById("formContent").style.display = "block";
 
-      document.getElementById("formTitle")
-        .textContent = title;
+  document.getElementById("formTitle").textContent = title;
 
-      document.getElementById("formFrame").srcdoc = "";
+  const frame = document.getElementById("formFrame");
 
-document.getElementById("formFrame")
-  .src = page;
+  /* Clear old temporary content */
+  frame.removeAttribute("srcdoc");
 
-      setActive(button);
+  /* Clear old page */
+  frame.src = "";
 
-    }
+  /* Open requested page */
+  frame.src = page;
 
-
-    /* ================= ACTIVE MENU ================= */
-
-    function setActive(button) {
-
-      document
-        .querySelectorAll(".menu")
-        .forEach(function(item) {
-
-          item.classList.remove("active");
-
-        });
-
-      if (button) {
-
-        button.classList.add("active");
-
-      }
-
-    }
+  setActive(button);
+}
 
 
-    /* ================= COMING SOON ================= */
+/* ================= ACTIVE MENU ================= */
 
-    function comingSoon(name, button) {
+function setActive(button) {
 
-      document.getElementById("dashboardContent")
-        .style.display = "none";
+  document
+    .querySelectorAll(".menu")
+    .forEach(function(item) {
 
-      document.getElementById("formContent")
-        .style.display = "block";
+      item.classList.remove("active");
 
-      document.getElementById("formTitle")
-        .textContent = name;
+    });
 
-      document.getElementById("formFrame")
-        .srcdoc = `
+  if (button) {
 
-          <div style="
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:80vh;
-            font-family:Arial;
-            color:#607d8b;
-            text-align:center;
-          ">
+    button.classList.add("active");
 
-            <div>
+  }
+}
 
-              <h1 style="color:#263238;">
-                ${name}
-              </h1>
 
-              <p style="margin-top:10px;">
-                This module will be added here.
-              </p>
+/* ================= COMING SOON ================= */
 
-            </div>
+function comingSoon(name, button) {
 
-          </div>
+  document.getElementById("dashboardContent").style.display = "none";
 
-        `;
+  document.getElementById("formContent").style.display = "block";
 
-      setActive(button);
+  document.getElementById("formTitle").textContent = name;
 
-    }
+  const frame = document.getElementById("formFrame");
 
+  /* Clear previous page */
+  frame.src = "";
+
+  /* Show temporary message */
+  frame.srcdoc = `
+    
+    <div style="
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:80vh;
+      font-family:Arial;
+      color:#607d8b;
+      text-align:center;
+    ">
+
+      <div>
+
+        <h1 style="color:#263238;">
+          ${name}
+        </h1>
+
+        <p style="margin-top:10px;">
+          This module will be added here.
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+  setActive(button);
+}
   </script>
 
 </body>
