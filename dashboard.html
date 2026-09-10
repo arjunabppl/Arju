@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -246,11 +247,9 @@
     /* ================= RESPONSIVE ================= */
 
     @media (max-width: 1100px) {
-
       .cards {
         grid-template-columns: repeat(2, 1fr);
       }
-
     }
 
     @media (max-width: 700px) {
@@ -279,11 +278,9 @@
       .form-frame {
         height: 700px;
       }
-
     }
   </style>
 </head>
-
 
 <body>
 
@@ -322,49 +319,61 @@
       </button>
 
 
-<button
-    class="menu"
-    onclick="document.getElementById('dashboardContent').style.display='none'; document.getElementById('formContent').style.display='block'; document.getElementById('formFrame').src='supplier-accounts.html';"
->
-    👤 Supplier
-</button>
+      <!-- SUPPLIER -->
 
-       
       <button
         class="menu"
-         onclick="openPage('Customer', this)"
+        onclick="openPage('supplier-accounts.html', 'Supplier Accounts', this)"
+      >
+        👤 Supplier
+      </button>
+
+
+      <!-- CUSTOMER -->
+
+      <button
+        class="menu"
+        onclick="comingSoon('Customer', this)"
       >
         👥 Customer
       </button>
 
 
+      <!-- SALES -->
+
       <button
         class="menu"
-        onclick="openPage('Sales', this)"
+        onclick="comingSoon('Sales', this)"
       >
         💰 Sales
       </button>
 
 
+      <!-- PURCHASE -->
+
       <button
         class="menu"
-        onclick="openPage('Purchase', this)"
+        onclick="comingSoon('Purchase', this)"
       >
         📦 Purchase
       </button>
 
 
+      <!-- ORDERS -->
+
       <button
         class="menu"
-         onclick="openPage('Orders', this)"
+        onclick="comingSoon('Orders', this)"
       >
         📋 Orders
       </button>
 
 
+      <!-- REPORTS -->
+
       <button
         class="menu"
-         onclick="openPage('Reports', this)"
+        onclick="comingSoon('Reports', this)"
       >
         📊 Reports
       </button>
@@ -377,7 +386,7 @@
     <main class="main">
 
 
-      <!-- DASHBOARD -->
+      <!-- ================= DASHBOARD ================= -->
 
       <div id="dashboardContent">
 
@@ -552,16 +561,31 @@
           © 2026 Arju Papers Pvt Ltd. All Rights Reserved.
         </footer>
 
-     <div id="formContent">
+      </div>
 
-    <iframe
-        id="formFrame"
-        class="form-frame"
-        src=""
-        title="Form">
-    </iframe>
 
-</div>
+      <!-- ================= FORM CONTENT ================= -->
+
+      <div id="formContent">
+
+        <div class="form-header">
+
+          <h2 id="formTitle">
+            Form
+          </h2>
+
+        </div>
+
+
+        <iframe
+          id="formFrame"
+          class="form-frame"
+          src=""
+          title="Form">
+        </iframe>
+
+      </div>
+
 
     </main>
 
@@ -572,7 +596,7 @@
 
   <script>
 
-    /* LOGOUT */
+    /* ================= LOGOUT ================= */
 
     function logout() {
 
@@ -581,7 +605,7 @@
     }
 
 
-    /* SHOW DASHBOARD */
+    /* ================= SHOW DASHBOARD ================= */
 
     function showDashboard(button) {
 
@@ -596,7 +620,7 @@
     }
 
 
-    /* OPEN FORM ON RIGHT SIDE */
+    /* ================= OPEN PAGE ================= */
 
     function openPage(page, title, button) {
 
@@ -617,7 +641,7 @@
     }
 
 
-    /* ACTIVE MENU */
+    /* ================= ACTIVE MENU ================= */
 
     function setActive(button) {
 
@@ -629,12 +653,16 @@
 
         });
 
-      button.classList.add("active");
+      if (button) {
+
+        button.classList.add("active");
+
+      }
 
     }
 
 
-    /* COMING SOON */
+    /* ================= COMING SOON ================= */
 
     function comingSoon(name, button) {
 
