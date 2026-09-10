@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Supplier Accounts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #263238;
+        }
+
+        .container {
+            padding: 25px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .top-bar h1 {
+            font-size: 24px;
+        }
+
+        .create-btn {
+            background: #263238;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .create-btn:hover {
+            background: #455a64;
+        }
+
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .info-box h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .info-box p {
+            color: #607d8b;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Supplier Accounts</h1>
+    <div class="container">
+
+        <!-- TOP BAR -->
+
+        <div class="top-bar">
+
+            <h1>Supplier Accounts</h1>
+
+            <button class="create-btn" onclick="createVendor()">
+                + Create Vendor
+            </button>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="info-box">
+
+            <h2>Supplier Ledger & Accounts</h2>
+
+            <p>
+                Supplier-wise transactions, purchases, payments and outstanding
+                balances will be displayed here.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function createVendor() {
+
+            alert("Create Vendor option will be added here.");
+
+        }
+
+    </script>
 
 </body>
+
 </html>
