@@ -1,68 +1,97 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Paper Mill</title>
+
+  <title>Create Paper Mill | Arju Papers Pvt Ltd</title>
 
   <style>
     * {
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       margin: 0;
-      background: #eef1f4;
+      background: #f4f6f8;
       color: #263238;
     }
 
+    /* HEADER */
     .header {
-      background: linear-gradient(135deg, #263238, #455a64);
-      color: white;
-      padding: 18px 25px;
+      background: linear-gradient(135deg, #263238, #37474f);
+      color: #fff;
+      padding: 18px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
     .header h2 {
       margin: 0;
+      font-size: 21px;
+      font-weight: 600;
     }
 
     .back-btn {
       border: none;
-      background: #90a4ae;
-      color: white;
-      padding: 10px 15px;
+      background: #607d8b;
+      color: #fff;
+      padding: 10px 18px;
       border-radius: 6px;
       cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
+    .back-btn:hover {
+      background: #78909c;
+    }
+
+    /* MAIN */
     .main {
-      max-width: 950px;
+      max-width: 1100px;
       margin: 30px auto;
-      padding: 0 15px;
+      padding: 0 18px;
     }
 
+    /* CARDS */
     .form-box,
     .list-box {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
+      background: #fff;
+      padding: 28px;
+      border-radius: 12px;
       margin-bottom: 25px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+      border: 1px solid #e4e7ea;
     }
 
-    h1,
-    h2 {
+    .page-title {
+      margin: 0 0 6px;
+      color: #263238;
+      font-size: 25px;
+    }
+
+    .subtitle {
+      margin: 0 0 25px;
+      color: #607d8b;
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 0 0 20px;
+      font-size: 20px;
       color: #263238;
     }
 
+    /* FORM */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: 18px 22px;
     }
 
     .field {
@@ -75,92 +104,204 @@
     }
 
     label {
-      font-weight: bold;
+      font-size: 14px;
+      font-weight: 600;
       margin-bottom: 7px;
-      color: #455a64;
+      color: #37474f;
+    }
+
+    .required {
+      color: #d32f2f;
     }
 
     input,
     select,
     textarea {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #b0bec5;
-      border-radius: 7px;
-      font-size: 15px;
-    }
-
-    textarea {
-      min-height: 80px;
-      resize: vertical;
+      padding: 12px 13px;
+      border: 1px solid #cfd8dc;
+      border-radius: 6px;
+      background: #fff;
+      color: #263238;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
     input:focus,
     select:focus,
     textarea:focus {
       outline: none;
-      border: 2px solid #607d8b;
+      border-color: #607d8b;
+      box-shadow: 0 0 0 3px rgba(96, 125, 139, 0.12);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    /* BUTTONS */
+    .form-actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 10px;
     }
 
     .save-btn {
-      margin-top: 22px;
       border: none;
       background: #263238;
-      color: white;
-      padding: 13px 25px;
-      border-radius: 7px;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .save-btn:hover {
-      background: #455a64;
+      background: #37474f;
+    }
+
+    .clear-btn {
+      border: 1px solid #cfd8dc;
+      background: #fff;
+      color: #455a64;
+      padding: 12px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .clear-btn:hover {
+      background: #f5f5f5;
     }
 
     #message {
-      margin-top: 15px;
-      font-weight: bold;
+      margin: 15px 0 0;
+      font-size: 14px;
+      font-weight: 600;
     }
 
+    /* SEARCH */
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      width: 280px;
+      padding: 10px 12px;
+      border: 1px solid #cfd8dc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    /* TABLE */
     .table-wrapper {
       overflow-x: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 7px;
     }
 
     table {
       width: 100%;
-      min-width: 750px;
+      min-width: 900px;
       border-collapse: collapse;
     }
 
     th,
     td {
-      padding: 12px;
-      border-bottom: 1px solid #e0e0e0;
+      padding: 12px 14px;
+      border-bottom: 1px solid #eceff1;
       text-align: left;
+      font-size: 13px;
       white-space: nowrap;
     }
 
     th {
-      background: #eceff1;
+      background: #f5f7f8;
+      color: #37474f;
+      font-weight: 600;
     }
 
-    .active {
-      color: green;
-      font-weight: bold;
+    tbody tr:hover {
+      background: #fafafa;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      border: none;
+      padding: 7px 11px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .edit-btn {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .edit-btn:hover {
+      background: #bbdefb;
     }
 
     .delete-btn {
-      background: #e53935;
-      color: white;
-      border: none;
-      padding: 7px 10px;
-      border-radius: 5px;
-      cursor: pointer;
+      background: #ffebee;
+      color: #c62828;
     }
 
-    @media (max-width: 650px) {
+    .delete-btn:hover {
+      background: #ffcdd2;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #78909c;
+      padding: 25px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .header {
+        padding: 15px;
+      }
+
       .header h2 {
         font-size: 17px;
+      }
+
+      .main {
+        margin-top: 20px;
+        padding: 0 12px;
+      }
+
+      .form-box,
+      .list-box {
+        padding: 18px;
       }
 
       .form-grid {
@@ -171,9 +312,17 @@
         grid-column: span 1;
       }
 
-      .form-box,
-      .list-box {
-        padding: 18px;
+      .list-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .form-actions {
+        flex-direction: column;
       }
     }
   </style>
@@ -181,72 +330,172 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="header">
     <h2>Arju Papers Pvt Ltd</h2>
-    <button class="back-btn" onclick="goDashboard()">← Dashboard</button>
+
+    <button class="back-btn" onclick="goDashboard()">
+      ← Dashboard
+    </button>
   </header>
+
 
   <main class="main">
 
-    <div class="form-box">
-      <h1>Create Paper Mill</h1></button>
-      <p>Add paper mill or supplier details below.</p>
+    <!-- CREATE MILL FORM -->
+    <section class="form-box">
+
+      <h1 class="page-title">Create Paper Mill</h1>
+
+      <p class="subtitle">
+        Add and manage paper mill or supplier information.
+      </p>
 
       <form id="millForm">
 
         <div class="form-grid">
 
+          <!-- MILL NAME -->
           <div class="field">
-            <label for="millName">Mill Name *</label>
-            <input type="text" id="millName" placeholder="Enter mill name" required>
+            <label for="millName">
+              Mill Name <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="millName"
+              placeholder="Enter mill name"
+              required
+            >
           </div>
 
+
+          <!-- CONTACT PERSON -->
           <div class="field">
-            <label for="contactPerson">Contact Person *</label>
-            <input type="text" id="contactPerson" placeholder="Enter contact person" required>
+            <label for="contactPerson">
+              Contact Person <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="contactPerson"
+              placeholder="Enter contact person"
+              required
+            >
           </div>
 
+
+          <!-- MOBILE -->
           <div class="field">
-            <label for="mobile">Mobile Number *</label>
-            <input type="tel" id="mobile" placeholder="Enter mobile number" required>
+            <label for="mobile">
+              Mobile Number <span class="required">*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="mobile"
+              placeholder="Enter 10-digit mobile number"
+              maxlength="10"
+              pattern="[0-9]{10}"
+              required
+            >
           </div>
 
+
+          <!-- EMAIL -->
           <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter email address">
+            <label for="email">Email Address</label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter email address"
+            >
           </div>
 
+
+          <!-- GST -->
           <div class="field">
             <label for="gst">GST Number</label>
-            <input type="text" id="gst" placeholder="Enter GST number">
+
+            <input
+              type="text"
+              id="gst"
+              placeholder="Enter GST number"
+              maxlength="15"
+              style="text-transform: uppercase;"
+            >
           </div>
 
+
+          <!-- STATE -->
           <div class="field">
             <label for="state">State</label>
-            <input type="text" id="state" placeholder="Enter state">
-          </div>
 
-          <div class="field full">
-            <label for="address">Mill Address *</label>
-            <textarea id="address" placeholder="Enter complete mill address" required></textarea>
-          </div>
-
-          <div class="field">
-            <label for="paperType">Main Paper Type</label>
-            <select id="paperType">
-              <option value="">Select paper type</option>
-              <option>Copier Paper</option>
-              <option>Maplitho Paper</option>
-              <option>Art Paper</option>
-              <option>Duplex Board</option>
-              <option>Kraft Paper</option>
-              <option>Newsprint Paper</option>
+            <select id="state">
+              <option value="">Select state</option>
+              <option>Andhra Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chhattisgarh</option>
+              <option>Delhi</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Odisha</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
               <option>Other</option>
             </select>
           </div>
 
+
+          <!-- ADDRESS -->
+          <div class="field full">
+            <label for="address">
+              Mill Address <span class="required">*</span>
+            </label>
+
+            <textarea
+              id="address"
+              placeholder="Enter complete mill address"
+              required
+            ></textarea>
+          </div>
+
+
+          <!-- PAPER TYPE -->
+          <div class="field">
+            <label for="paperType">Main Paper Type</label>
+
+            <select id="paperType">
+              <option value="">Select paper type</option>
+              <option>Copier Paper</option>
+              <option>Maplitho Paper</option>
+              <option>C2S Paper</option>
+              <option>Art Paper</option>
+              <option>Duplex Board</option>
+              <option>Kraft Paper</option>
+              <option>Newsprint Paper</option>
+              <option>MG Paper</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+
+          <!-- PAYMENT TERMS -->
           <div class="field">
             <label for="paymentTerms">Payment Terms</label>
+
             <select id="paymentTerms">
               <option>Cash</option>
               <option>Advance</option>
@@ -254,32 +503,90 @@
               <option>15 Days</option>
               <option>30 Days</option>
               <option>45 Days</option>
+              <option>60 Days</option>
+              <option>90 Days</option>
             </select>
           </div>
 
+
+          <!-- TRANSPORT -->
           <div class="field">
             <label for="transport">Transport Details</label>
-            <input type="text" id="transport" placeholder="Transport or delivery details">
+
+            <input
+              type="text"
+              id="transport"
+              placeholder="Enter transport details"
+            >
           </div>
 
+
+          <!-- BANK -->
           <div class="field">
             <label for="bank">Bank Details</label>
-            <input type="text" id="bank" placeholder="Optional bank details">
+
+            <input
+              type="text"
+              id="bank"
+              placeholder="Enter bank details"
+            >
           </div>
 
         </div>
 
-        <button class="save-btn" type="submit">Save Mill</button>
+
+        <!-- ACTION BUTTONS -->
+        <div class="form-actions">
+
+          <button
+            class="save-btn"
+            type="submit"
+            id="saveButton"
+          >
+            Save Mill
+          </button>
+
+          <button
+            class="clear-btn"
+            type="button"
+            onclick="clearForm()"
+          >
+            Clear
+          </button>
+
+        </div>
+
         <p id="message"></p>
 
       </form>
-    </div>
 
-    <div class="list-box">
-      <h2>Mill List</h2>
+    </section>
+
+
+    <!-- MILL LIST -->
+    <section class="list-box">
+
+      <div class="list-header">
+
+        <h2 class="section-title">
+          Paper Mill List
+        </h2>
+
+        <input
+          type="text"
+          id="searchMill"
+          class="search-box"
+          placeholder="Search mill name..."
+          oninput="searchMills()"
+        >
+
+      </div>
+
 
       <div class="table-wrapper">
+
         <table>
+
           <thead>
             <tr>
               <th>Mill Name</th>
@@ -287,100 +594,423 @@
               <th>Mobile</th>
               <th>Paper Type</th>
               <th>Payment Terms</th>
+              <th>State</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
 
-          <tbody id="millList">
-            <tr>
-              <td colspan="7">No mill added yet.</td>
-            </tr>
-          </tbody>
+          <tbody id="millList"></tbody>
+
         </table>
+
       </div>
-    </div>
+
+    </section>
 
   </main>
 
+
   <script>
+
+    /* LOAD EXISTING DATA */
     let mills = JSON.parse(localStorage.getItem("mills")) || [];
 
-    document.getElementById("millForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    let editIndex = -1;
 
-      const mill = {
-        name: document.getElementById("millName").value,
-        contact: document.getElementById("contactPerson").value,
-        mobile: document.getElementById("mobile").value,
-        email: document.getElementById("email").value,
-        gst: document.getElementById("gst").value,
-        state: document.getElementById("state").value,
-        address: document.getElementById("address").value,
-        paperType: document.getElementById("paperType").value,
-        paymentTerms: document.getElementById("paymentTerms").value,
-        transport: document.getElementById("transport").value,
-        bank: document.getElementById("bank").value
-      };
 
-      mills.push(mill);
-      localStorage.setItem("mills", JSON.stringify(mills));
+    /* FORM SUBMIT */
+    document
+      .getElementById("millForm")
+      .addEventListener("submit", function(event) {
 
-      document.getElementById("message").style.color = "green";
-      document.getElementById("message").textContent =
-        "Mill successfully save ho gaya.";
+        event.preventDefault();
 
-      document.getElementById("millForm").reset();
-      displayMills();
-    });
+        const mobile = document
+          .getElementById("mobile")
+          .value.trim();
 
-    function displayMills() {
-      const list = document.getElementById("millList");
+        if (!/^[0-9]{10}$/.test(mobile)) {
 
-      if (mills.length === 0) {
+          showMessage(
+            "Please enter a valid 10-digit mobile number.",
+            "red"
+          );
+
+          return;
+        }
+
+
+        const mill = {
+
+          name: document
+            .getElementById("millName")
+            .value.trim(),
+
+          contact: document
+            .getElementById("contactPerson")
+            .value.trim(),
+
+          mobile: mobile,
+
+          email: document
+            .getElementById("email")
+            .value.trim(),
+
+          gst: document
+            .getElementById("gst")
+            .value.trim()
+            .toUpperCase(),
+
+          state: document
+            .getElementById("state")
+            .value,
+
+          address: document
+            .getElementById("address")
+            .value.trim(),
+
+          paperType: document
+            .getElementById("paperType")
+            .value,
+
+          paymentTerms: document
+            .getElementById("paymentTerms")
+            .value,
+
+          transport: document
+            .getElementById("transport")
+            .value.trim(),
+
+          bank: document
+            .getElementById("bank")
+            .value.trim()
+
+        };
+
+
+        /* EDIT EXISTING MILL */
+        if (editIndex >= 0) {
+
+          mills[editIndex] = mill;
+
+          editIndex = -1;
+
+          document.getElementById("saveButton").textContent =
+            "Save Mill";
+
+          showMessage(
+            "Mill details updated successfully.",
+            "green"
+          );
+
+        }
+
+        /* ADD NEW MILL */
+        else {
+
+          mills.push(mill);
+
+          showMessage(
+            "Mill saved successfully.",
+            "green"
+          );
+        }
+
+
+        localStorage.setItem(
+          "mills",
+          JSON.stringify(mills)
+        );
+
+
+        document
+          .getElementById("millForm")
+          .reset();
+
+        displayMills();
+
+      });
+
+
+    /* DISPLAY MILLS */
+    function displayMills(filteredMills = mills) {
+
+      const list =
+        document.getElementById("millList");
+
+
+      if (filteredMills.length === 0) {
+
         list.innerHTML = `
           <tr>
-            <td colspan="7">No mill added yet.</td>
-          </tr>
-        `;
-        return;
-      }
-
-      list.innerHTML = "";
-
-      mills.forEach(function(mill, index) {
-        list.innerHTML += `
-          <tr>
-            <td>${mill.name}</td>
-            <td>${mill.contact}</td>
-            <td>${mill.mobile}</td>
-            <td>${mill.paperType || "-"}</td>
-            <td>${mill.paymentTerms}</td>
-            <td class="active">Active</td>
-            <td>
-              <button class="delete-btn" onclick="deleteMill(${index})">
-                Delete
-              </button>
+            <td colspan="8" class="empty-row">
+              No paper mill records found.
             </td>
           </tr>
         `;
-      });
-    }
 
-    function deleteMill(index) {
-      if (confirm("Kya aap is mill ko delete karna chahte hain?")) {
-        mills.splice(index, 1);
-        localStorage.setItem("mills", JSON.stringify(mills));
-        displayMills();
+        return;
       }
+
+
+      list.innerHTML = "";
+
+
+      filteredMills.forEach(function(mill) {
+
+        const originalIndex =
+          mills.indexOf(mill);
+
+
+        list.innerHTML += `
+
+          <tr>
+
+            <td><strong>${escapeHTML(mill.name)}</strong></td>
+
+            <td>${escapeHTML(mill.contact)}</td>
+
+            <td>${escapeHTML(mill.mobile)}</td>
+
+            <td>${escapeHTML(mill.paperType || "-")}</td>
+
+            <td>${escapeHTML(mill.paymentTerms || "-")}</td>
+
+            <td>${escapeHTML(mill.state || "-")}</td>
+
+            <td>
+              <span class="status">
+                Active
+              </span>
+            </td>
+
+            <td>
+
+              <div class="action-buttons">
+
+                <button
+                  class="edit-btn"
+                  onclick="editMill(${originalIndex})"
+                >
+                  Edit
+                </button>
+
+                <button
+                  class="delete-btn"
+                  onclick="deleteMill(${originalIndex})"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `;
+
+      });
+
     }
 
+
+    /* EDIT MILL */
+    function editMill(index) {
+
+      const mill = mills[index];
+
+      document.getElementById("millName").value =
+        mill.name;
+
+      document.getElementById("contactPerson").value =
+        mill.contact;
+
+      document.getElementById("mobile").value =
+        mill.mobile;
+
+      document.getElementById("email").value =
+        mill.email;
+
+      document.getElementById("gst").value =
+        mill.gst;
+
+      document.getElementById("state").value =
+        mill.state;
+
+      document.getElementById("address").value =
+        mill.address;
+
+      document.getElementById("paperType").value =
+        mill.paperType;
+
+      document.getElementById("paymentTerms").value =
+        mill.paymentTerms;
+
+      document.getElementById("transport").value =
+        mill.transport;
+
+      document.getElementById("bank").value =
+        mill.bank;
+
+
+      editIndex = index;
+
+
+      document.getElementById("saveButton").textContent =
+        "Update Mill";
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      showMessage(
+        "You are editing this mill record.",
+        "#1565c0"
+      );
+
+    }
+
+
+    /* DELETE MILL */
+    function deleteMill(index) {
+
+      const millName =
+        mills[index].name;
+
+
+      if (
+        confirm(
+          "Are you sure you want to delete " +
+          millName +
+          "?"
+        )
+      ) {
+
+        mills.splice(index, 1);
+
+        localStorage.setItem(
+          "mills",
+          JSON.stringify(mills)
+        );
+
+        displayMills();
+
+        showMessage(
+          "Mill deleted successfully.",
+          "green"
+        );
+
+      }
+
+    }
+
+
+    /* SEARCH */
+    function searchMills() {
+
+      const search =
+        document
+          .getElementById("searchMill")
+          .value
+          .toLowerCase()
+          .trim();
+
+
+      if (search === "") {
+
+        displayMills();
+
+        return;
+      }
+
+
+      const filtered =
+        mills.filter(function(mill) {
+
+          return (
+            mill.name
+              .toLowerCase()
+              .includes(search) ||
+
+            mill.contact
+              .toLowerCase()
+              .includes(search) ||
+
+            mill.state
+              .toLowerCase()
+              .includes(search)
+          );
+
+        });
+
+
+      displayMills(filtered);
+
+    }
+
+
+    /* CLEAR FORM */
+    function clearForm() {
+
+      document
+        .getElementById("millForm")
+        .reset();
+
+      editIndex = -1;
+
+      document.getElementById("saveButton").textContent =
+        "Save Mill";
+
+      document.getElementById("message").textContent = "";
+
+    }
+
+
+    /* MESSAGE */
+    function showMessage(text, color) {
+
+      const message =
+        document.getElementById("message");
+
+      message.style.color = color;
+
+      message.textContent = text;
+
+    }
+
+
+    /* SECURITY / HTML ESCAPE */
+    function escapeHTML(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* DASHBOARD */
     function goDashboard() {
-      window.location.href = "dashboard.html";
+
+      window.location.href =
+        "dashboard.html";
+
     }
 
+
+    /* INITIAL LOAD */
     displayMills();
+
   </script>
 
 </body>
 </html>
+```
